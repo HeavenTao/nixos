@@ -18,7 +18,7 @@
 						{
 							home-manager.useGlobalPkgs=true;
 							home-manager.useUserPackages=true;
-							home-manager.user.ht=import ./home.nix;
+							home-manager.users.ht=import ./home.nix;
 						}
 				];
 			};
