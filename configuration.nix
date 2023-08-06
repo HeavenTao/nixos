@@ -76,6 +76,9 @@
 		   wget
 		   git
 		   fish
+	           zig_0_9
+                   statix
+                   nixfmt
    ];
 
   # Some programs need SUID wrappers, can be configured further or are
