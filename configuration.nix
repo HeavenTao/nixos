@@ -5,13 +5,11 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
-  nix.settings.substituters=["https://mirrors.ustc.edu.cn/nix-channels/store/"];
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "ht" ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -20,7 +18,8 @@
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable =
+    true; # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
@@ -40,9 +39,6 @@
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
-
-  
-
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
@@ -57,29 +53,30 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  #programs
+  programs.fish.enable = true;
+  programs.neovim.enable = true;
+  programs.neovim.withNodeJs = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
-   programs.fish.enable=true;
-   users.users.ht = {
-     isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-     shell=pkgs.fish;
-     packages = with pkgs; [
-     ];
-   };
+  users.users.ht = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.fish;
+    packages = with pkgs; [ ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-   programs.neovim.enable=true;
-   programs.neovim.withNodeJs=true;
-   environment.systemPackages = with pkgs; [
-	   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-		   wget
-		   git
-		   fish
-	           zig_0_9
-                   statix
-                   nixfmt
-   ];
+  environment.systemPackages = with pkgs; [
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    git
+    fish
+    zig_0_9
+    statix
+    nixfmt
+  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -93,7 +90,7 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-  services.openssh.settings.PasswordAuthentication=true;
+  services.openssh.settings.PasswordAuthentication = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -115,4 +112,3 @@
   system.stateVersion = "23.05"; # Did you read the comment?
 
 }
-
