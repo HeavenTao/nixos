@@ -36,13 +36,13 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.windowManager.bspwm.enable = false;
+  services.xserver.windowManager.bspwm.enable = true;
 
    services.xserver.displayManager = {
            defaultSession = "none+bspwm";
            lightdm = {
-         	  enable = false;
-         	  greeter.enable = false;
+         	  enable = true;
+         	  greeter.enable = true;
            };
    };
 
