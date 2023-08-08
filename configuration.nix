@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ /etc/nixos/hardware-configuration.nix ];
+  imports = [ ./hardware-configuration.nix ];
 
   nix.settings.trusted-users = [ "ht" ];
 
