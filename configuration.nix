@@ -5,9 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   nix.settings.trusted-users = [ "ht" ];
 
@@ -18,8 +16,8 @@
   # networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.enable =
-    true; # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true;
+  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
@@ -37,7 +35,16 @@
   # };
 
   # Enable the X11 windowing system.
-  # services.xserver.enable = true;
+  services.xserver.enable = true;
+  #services.xserver.windowManager.bspwm.enable = false;
+
+  #services.xserver.displayManager = {
+  #defaultSession = "none+bspwm";
+  #lightdm = {
+  #enable = false;
+  #greeter.enable = false;
+  #};
+  #};
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
@@ -76,6 +83,7 @@
     zig_0_9
     statix
     nixfmt
+    firefox
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
