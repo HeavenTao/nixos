@@ -5,7 +5,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [ /etc/nixos/hardware-configuration.nix ];
 
   nix.settings.trusted-users = [ "ht" ];
 
@@ -13,7 +13,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
@@ -23,7 +23,7 @@
   time.timeZone = "Asia/Shanghai";
 
   # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.default = "http://192.168.0.101:7890";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
@@ -36,15 +36,15 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  #services.xserver.windowManager.bspwm.enable = false;
+  services.xserver.windowManager.bspwm.enable = false;
 
-  #services.xserver.displayManager = {
-  #defaultSession = "none+bspwm";
-  #lightdm = {
-  #enable = false;
-  #greeter.enable = false;
-  #};
-  #};
+   services.xserver.displayManager = {
+           defaultSession = "none+bspwm";
+           lightdm = {
+         	  enable = false;
+         	  greeter.enable = false;
+           };
+   };
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
@@ -83,7 +83,8 @@
     zig_0_9
     statix
     nixfmt
-    firefox
+    sxhkd
+    kitty
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
