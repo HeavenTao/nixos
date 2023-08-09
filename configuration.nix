@@ -38,13 +38,13 @@
   services.xserver.enable = true;
   services.xserver.windowManager.bspwm.enable = true;
 
-   services.xserver.displayManager = {
-           defaultSession = "none+bspwm";
-           lightdm = {
-         	  enable = true;
-         	  greeter.enable = true;
-           };
-   };
+  services.xserver.displayManager = {
+    defaultSession = "none+bspwm";
+    lightdm = {
+      enable = true;
+      greeter.enable = true;
+    };
+  };
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
@@ -85,6 +85,7 @@
     nixfmt
     sxhkd
     kitty
+    bash
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
