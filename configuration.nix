@@ -40,7 +40,6 @@
   services.xserver.displayManager = {
     setupCommands = ''
       ${pkgs.xorg.xset}/bin/xset r rate 200
-      ${pkgs.picom}/bin/picom -b
     '';
     defaultSession = "none+bspwm";
     lightdm = {
