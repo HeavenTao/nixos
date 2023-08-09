@@ -4,12 +4,6 @@
   home.username = "ht";
   home.homeDirectory = "/home/ht";
 
-  programs.git = {
-    enable = true;
-    userName = "Heaven";
-    userEmail = "542248377@qq.com";
-  };
-
   home.packages = with pkgs; [ neofetch ];
 
   programs.starship = {
@@ -29,6 +23,9 @@
   home.file.".config/sxhkd/sxhkdrc" = {
     source = ./config/sxhkd/sxhkdrc;
     executable = true;
+  };
+  home.file.".config/picom/picom.conf" = {
+    source = ./config/picom/picom.conf;
   };
   home.stateVersion = "23.05";
   programs.home-manager.enable = true;
