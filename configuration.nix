@@ -39,6 +39,7 @@
   services.xserver.windowManager.bspwm.enable = true;
 
   services.xserver.displayManager = {
+    setupCommands = "${pkgs.xorg.xset}/bin/xset r rate 200";
     defaultSession = "none+bspwm";
     lightdm = {
       enable = true;
