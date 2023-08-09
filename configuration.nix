@@ -37,9 +37,10 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.windowManager.bspwm.enable = true;
-
   services.xserver.displayManager = {
-    setupCommands = "${pkgs.xorg.xset}/bin/xset r rate 200";
+    setupCommands = ''
+      ${pkgs.xorg.xset}/bin/xset r rate 200
+    '';
     defaultSession = "none+bspwm";
     lightdm = {
       enable = true;
@@ -85,9 +86,12 @@
     statix
     nixfmt
     sxhkd
-    kitty
     bash
     firefox
+    fzf
+    picom
+    kitty
+    xterm
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

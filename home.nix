@@ -22,15 +22,14 @@
     };
   };
 
-   home.file.".config/bspwm/bspwmrc"={
-           source= ./config/bspwm/bspwmrc;
-           executable=true;
-   };
-   home.file.".config/sxhkd/sxhkdrc"={
-           source= ./config/sxhkd/sxhkdrc;
-           executable=true;
-   };
-
+  home.file.".config/bspwm/bspwmrc" = {
+    source = ./config/bspwm/bspwmrc;
+    executable = true;
+  };
+  home.file.".config/sxhkd/sxhkdrc" = {
+    source = ./config/sxhkd/sxhkdrc;
+    executable = true;
+  };
   home.stateVersion = "23.05";
   programs.home-manager.enable = true;
 }
