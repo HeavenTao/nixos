@@ -23,11 +23,11 @@
   };
 
    home.file.".config/bspwm/bspwmrc"={
-           source= ./bspwmrc;
+           source= ./config/bspwm/bspwmrc;
            executable=true;
    };
    home.file.".config/sxhkd/sxhkdrc"={
-           source= ./sxhkdrc;
+           source= ./config/sxhkd/sxhkdrc;
            executable=true;
    };
 
