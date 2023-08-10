@@ -97,6 +97,8 @@
     kitty
     xterm
     polybar
+    arandr
+    feh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

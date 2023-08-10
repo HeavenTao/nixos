@@ -27,9 +27,6 @@
   home.file.".config/picom/picom.conf" = {
     source = ./config/picom/picom.conf;
   };
-  home.file.".config/kitty/kitty.conf" = {
-    source = ./config/kitty/kitty.conf;
-  };
   home.stateVersion = "23.05";
   programs.home-manager.enable = true;
 }
