@@ -66,6 +66,7 @@
   programs.fish.enable = true;
   programs.neovim.enable = true;
   programs.neovim.withNodeJs = true;
+  programs.neovim.defaultEditor = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ht = {
@@ -74,6 +75,9 @@
     shell = pkgs.fish;
     packages = with pkgs; [ ];
   };
+
+  fonts.packages = with pkgs;
+    [ (nerdfonts.override { fonts = [ "CascadiaCode" ]; }) ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
