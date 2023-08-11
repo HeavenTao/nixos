@@ -6,16 +6,6 @@
 
   home.packages = with pkgs; [ neofetch ];
 
-  programs.starship = {
-    enable = true;
-    settings = {
-      add_newline = false;
-      aws.disabled = true;
-      gcloud.disabled = true;
-      line_break.disabled = true;
-    };
-  };
-
   home.file.".config/bspwm/bspwmrc" = {
     source = ./config/bspwm/bspwmrc;
     executable = true;
@@ -26,6 +16,10 @@
   };
   home.file.".config/picom/picom.conf" = {
     source = ./config/picom/picom.conf;
+  };
+  home.file.".config/wall-paper" = {
+    source = ./wall-paper;
+    recursive = true;
   };
   home.stateVersion = "23.05";
   programs.home-manager.enable = true;
