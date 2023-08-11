@@ -45,6 +45,7 @@
     lightdm = {
       enable = true;
       greeter.enable = true;
+      background = ./wall-paper/wp12329545.png;
     };
   };
 
