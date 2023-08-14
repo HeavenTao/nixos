@@ -40,6 +40,7 @@
   services.xserver.displayManager = {
     setupCommands = ''
       ${pkgs.xorg.xset}/bin/xset r rate 200
+      ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-2 --primary --left-of DVI-D-1
     '';
     defaultSession = "none+bspwm";
     lightdm = {
@@ -100,6 +101,7 @@
     polybar
     arandr
     nitrogen
+    xorg.xev
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

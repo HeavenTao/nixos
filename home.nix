@@ -21,6 +21,10 @@
     source = ./wall-paper;
     recursive = true;
   };
+  home.file.".config/polybar/" = {
+    source = ./config/polybar;
+    recursive = true;
+  };
   home.stateVersion = "23.05";
   programs.home-manager.enable = true;
 }

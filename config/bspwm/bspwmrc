@@ -6,8 +6,8 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 
 
-bspc HDMI-2 -d 1 
-bspc DVI-D-1 -d 2
+bspc monitor HDMI-2 -d 1 2 
+bspc monitor DVI-D-1 -d 3 4
 
 
 
@@ -38,4 +38,5 @@ bspc rule -a Screenkey manage=off
 
 #AutoStart Application
 nitrogen --restore /home/ht/.config/wall-paper/*
-picom &
+polybar &
+#picom &
