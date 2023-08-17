@@ -78,8 +78,10 @@
     packages = with pkgs; [ ];
   };
 
-  fonts.packages = with pkgs;
-    [ (nerdfonts.override { fonts = [ "CascadiaCode" ]; }) ];
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
+    google-fonts
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
