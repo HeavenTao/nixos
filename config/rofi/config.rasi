@@ -1,0 +1,26 @@
+configuration{
+    modi: "run,drun,window";
+    icon-theme: "Oranchelo";
+    show-icons: true;
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    display-window: " 﩯  Window";
+    display-Network: " 󰤨  Network";
+    sidebar-mode: true;
+    kb-row-left:"Control+h";
+    kb-row-right:"Control+l";
+    kb-row-up:"Control+k";
+    kb-row-down:"Control+j";
+    kb-accept-entry:"KP_Enter,Return";
+    kb-remove-char-back:"BackSpace";
+    kb-remove-to-eol:"";
+    kb-mode-complete:"";
+}
+
+@theme "catppuccin-frappe"
+

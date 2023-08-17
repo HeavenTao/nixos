@@ -25,6 +25,10 @@
     source = ./config/polybar;
     recursive = true;
   };
+  home.file.".config/rofi/" = {
+    source = ./config/rofi;
+    recursive = true;
+  };
   home.stateVersion = "23.05";
   programs.home-manager.enable = true;
 }
