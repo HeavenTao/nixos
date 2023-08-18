@@ -117,7 +117,7 @@
       ];
 
       # opacity
-      active-opacity = 0.93;
+      active-opacity = 0.98;
       opacity-rule = [
         "100:_NET_WM_STATE@:32a *= '_NET_WM_STATE_FULLSCREEN'"
         "100:_NET_WM_STATE@:32a *= '_NET_WM_STATE_STICKY'"
@@ -127,8 +127,9 @@
         "100:class_g = 'Gimp'"
         "100:class_g = 'firefox'"
         "100:class_g = 'tray'"
-        "100:name = 'Polybar tray window'"
-        "85:!focused"
+        "100:name* = 'chrome'"
+        "100:name = 'Polybar tray window rofi'"
+        "90:!focused"
       ];
 
       # fading
@@ -173,14 +174,14 @@
         tooltip = {
           fade = true;
           shadow = false;
-          opacity = 0.85;
+          opacity = 0.9;
           focus = true;
         };
         fullscreen = {
           fade = true;
           shadow = false;
           focus = true;
-          opacity = 0.93;
+          opacity = 0.95;
         };
       };
     };
