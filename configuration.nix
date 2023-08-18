@@ -8,6 +8,7 @@
   imports = [ ./hardware-configuration.nix ];
 
   nix.settings.trusted-users = [ "ht" ];
+  nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
@@ -105,6 +106,7 @@
     nitrogen
     xorg.xev
     rofi
+    google-chrome
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
