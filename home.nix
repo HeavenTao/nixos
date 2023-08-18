@@ -14,9 +14,9 @@
     source = ./config/sxhkd/sxhkdrc;
     executable = true;
   };
-  home.file.".config/picom/picom.conf" = {
-    source = ./config/picom/picom.conf;
-  };
+  #home.file.".config/picom/picom.conf" = {
+  #source = ./config/picom/picom.conf;
+  #};
   home.file.".config/wall-paper" = {
     source = ./wall-paper;
     recursive = true;
