@@ -107,18 +107,16 @@
     nixfmt
     sxhkd
     bash
-    firefox
     fzf
-    picom
     kitty
     xterm
     polybar
     arandr
     nitrogen
-    xorg.xev
     rofi
     google-chrome
     clash
+    papirus-icon-theme
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
