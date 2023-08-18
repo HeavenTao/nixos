@@ -6,9 +6,9 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 
 
-bspc monitor HDMI-2 -d 1 2 
-bspc monitor DVI-D-1 -d 3 4
-#bspc monitor Virtual1 -d 1 2 3
+#bspc monitor HDMI-2 -d 1 2 
+#bspc monitor DVI-D-1 -d 3 4
+bspc monitor Virtual1 -d 1 2 3
 
 
 bspc config border_width         3
