@@ -34,6 +34,12 @@
   #   keyMap = "us";
   #   useXkbConfig = true; # use xkbOptions in tty.
   # };
+  environment.sessionVariables = rec {
+    http_proxy = "http://127.0.0.1:7890";
+    https_proxy = "http://127.0.0.1:7890";
+    HTTP_PROXY = "http://127.0.0.1:7890";
+    HTTPS_PROXY = "http://127.0.0.1:7890";
+  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -67,9 +73,14 @@
 
   #programs
   programs.fish.enable = true;
+
   programs.neovim.enable = true;
   programs.neovim.withNodeJs = true;
   programs.neovim.defaultEditor = true;
+
+  programs.clash-verge.enable = true;
+  programs.clash-verge.tunMode = true;
+  programs.clash-verge.autoStart = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ht = {
@@ -107,6 +118,7 @@
     xorg.xev
     rofi
     google-chrome
+    clash
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
