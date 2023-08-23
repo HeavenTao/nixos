@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 disk=${1:?"disk not set"}
-bootSize="512MiB";
+bootSize="513MiB";
 swapSize=${2:-"4096MiB"}
 
 #check disk if exists
