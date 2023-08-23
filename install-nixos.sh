@@ -22,7 +22,7 @@ fdisk -l $disk
 
 read -p "Is this config ok?<[y]/n>?" -a args
 option=${args[0]:-"y"}
-if [ ${option} = "y"];then
+if [ ${option} = "y" ];then
     # format
     mkfs.fat -F 32 -n boot /dev/sda1
     mkswap -L swap /dev/sda2
