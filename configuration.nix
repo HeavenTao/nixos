@@ -131,6 +131,8 @@
     google-chrome
     clash
     papirus-icon-theme
+    (python311.withPackages (ps: with ps; [ numpy ]))
+    python311Packages.pip
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
