@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 disk=${1:?"disk not set"}
-bootSize=${2:-"513MiB"}
-swapSize=${3:-"4096MiB"}
+bootSize="512MiB";
+swapSize=${2:-"4096MiB"}
 
 #check disk if exists
 fdisk -l | grep $disk
@@ -17,5 +17,5 @@ parted $disk mklabel gpt
 parted $disk mkpart ESP fat32 1MiB $bootSize
 parted $disk set 1 esp on
 parted $disk mkpart primary linux-swap $bootSize "${endSize}MiB"
-parted $disk mkpart primary "${endSize}Mib" 100%
+parted $disk mkpart primary "${endSize}MiB" 100%
 fdisk -l $disk
