@@ -26,6 +26,7 @@
   networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
   networking.extraHosts = ''
     140.82.112.3 github.com
+    140.82.113.35 ssh.github.com
   '';
   # Easiest to use and most distros use this by default.
 
