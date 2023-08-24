@@ -23,11 +23,11 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;
-  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
-  networking.extraHosts = ''
-    140.82.112.3 github.com
-    140.82.113.35 ssh.github.com
-  '';
+  #networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
+  #networking.extraHosts = ''
+  #140.82.112.3 github.com
+  #140.82.113.35 ssh.github.com
+  #'';
   # Easiest to use and most distros use this by default.
 
   # Set your time zone.
