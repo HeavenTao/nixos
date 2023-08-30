@@ -92,6 +92,8 @@
 
   #programs
   programs.fish.enable = true;
+  programs.starship.enable = true;
+  programs.starship.interactiveOnly = true;
 
   programs.neovim.enable = true;
   programs.neovim.withNodeJs = true;
