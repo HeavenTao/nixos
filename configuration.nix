@@ -103,6 +103,8 @@
   programs.clash-verge.tunMode = true;
   programs.clash-verge.autoStart = true;
 
+  programs.htop.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ht = {
     isNormalUser = true;
@@ -140,6 +142,11 @@
     papirus-icon-theme
     (python311.withPackages (ps: with ps; [ numpy ]))
     python311Packages.pip
+    glances
+    exa
+    tldr
+    bat
+    tree
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
