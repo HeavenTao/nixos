@@ -121,33 +121,36 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    #tools
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
-    fish
-    zig_0_9
-    statix
-    nixfmt
-    sxhkd
-    bash
     fzf
-    kitty
-    xterm
-    polybar
-    arandr
-    nitrogen
-    rofi
-    google-chrome
-    clash
-    papirus-icon-theme
-    (python311.withPackages (ps: with ps; [ numpy ]))
-    python311Packages.pip
-    glances
     exa
     tldr
     bat
     tree
     ranger
+    docker
+    #shell
+    fish
+    bash
+    #terminal
+    kitty
+    xterm
+    #desktop
+    sxhkd
+    polybar
+    arandr
+    nitrogen
+    rofi
+    google-chrome
+    papirus-icon-theme
+    glances
+    #program
+    zig_0_9
+    statix
+    nixfmt
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
