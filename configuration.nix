@@ -34,8 +34,8 @@
   time.timeZone = "Asia/Shanghai";
 
   # Configure network proxy if necessary
-  # networking.proxy.default = "http://192.168.0.101:7890";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  networking.proxy.default = "http://127.0.0.1:7890";
+  #networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -59,6 +59,12 @@
     HTTP_PROXY = "http://127.0.0.1:7890";
     HTTPS_PROXY = "http://127.0.0.1:7890";
   };
+  #environment.variables = rec {
+  #http_proxy = "http://127.0.0.1:7890";
+  #https_proxy = "http://127.0.0.1:7890";
+  #HTTP_PROXY = "http://127.0.0.1:7890";
+  #HTTPS_PROXY = "http://127.0.0.1:7890";
+  #};
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -91,6 +97,9 @@
   # services.xserver.libinput.enable = true;
 
   #programs
+  virtualisation.docker.enable = true;
+  users.extraGroups.docker.members = [ "ht" ];
+
   programs.fish.enable = true;
   programs.starship.enable = true;
   programs.starship.interactiveOnly = true;
@@ -131,7 +140,6 @@
     bat
     tree
     ranger
-    docker
     #shell
     fish
     bash
