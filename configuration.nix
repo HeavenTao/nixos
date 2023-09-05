@@ -157,8 +157,31 @@
     glances
     #program
     zig_0_9
+
+    #language-server
+    #lua
+    lua-language-server
+
+    #html/css/json/eslint
+    nodePackages.vscode-langservers-extracted
+    nodePackages."@tailwindcss/language-server"
+
+    #bash
+    nodePackages.bash-language-server
+    beautysh
+
+    #python
+    nodePackages.pyright
+    black
+
+    #nix
+    rnix-lsp
     statix
     nixfmt
+
+    #javascript
+    nodePackages.typescript
+    nodePackages.typescript-language-server
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
