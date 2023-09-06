@@ -30,6 +30,112 @@
   #'';
   # Easiest to use and most distros use this by default.
 
+  #programs
+  virtualisation.docker.enable = true;
+  users.extraGroups.docker.members = [ "ht" ];
+
+  programs.fish.enable = true;
+  programs.starship.enable = true;
+  programs.starship.interactiveOnly = true;
+
+  programs.neovim.enable = true;
+  programs.neovim.withNodeJs = true;
+  programs.neovim.defaultEditor = true;
+
+  programs.clash-verge.enable = true;
+  programs.clash-verge.tunMode = true;
+  programs.clash-verge.autoStart = true;
+
+  programs.htop.enable = true;
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.ht = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.fish;
+    packages = with pkgs; [ ];
+  };
+
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
+    google-fonts
+  ];
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+  services.xserver.windowManager.bspwm.enable = true;
+  services.xserver.displayManager = {
+    setupCommands = ''
+      ${pkgs.xorg.xset}/bin/xset r rate 200
+      ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-2 --primary --left-of DVI-D-1
+    '';
+    defaultSession = "none+bspwm";
+    lightdm = {
+      enable = true;
+      greeter.enable = true;
+      background = ./wall-paper/wp12329545.png;
+    };
+  };
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    #tools
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    git
+    fzf
+    exa
+    tldr
+    bat
+    tree
+    ranger
+    #shell
+    fish
+    bash
+    #terminal
+    kitty
+    xterm
+    #desktop
+    sxhkd
+    polybar
+    arandr
+    nitrogen
+    rofi
+    google-chrome
+    papirus-icon-theme
+    glances
+    #program
+    zig_0_9
+    lua
+    love
+    lua52Packages.luarocks
+
+    #language-server
+    #lua
+    lua-language-server
+
+    #html/css/json/eslint
+    nodePackages.vscode-langservers-extracted
+    nodePackages."@tailwindcss/language-server"
+
+    #bash
+    nodePackages.bash-language-server
+    beautysh
+
+    #python
+    nodePackages.pyright
+    black
+
+    #nix
+    rnix-lsp
+    statix
+    nixfmt
+
+    #javascript
+    nodePackages.typescript
+    nodePackages.typescript-language-server
+  ];
   # Set your time zone.
   time.timeZone = "Asia/Shanghai";
 
@@ -66,22 +172,6 @@
   #HTTPS_PROXY = "http://127.0.0.1:7890";
   #};
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.windowManager.bspwm.enable = true;
-  services.xserver.displayManager = {
-    setupCommands = ''
-      ${pkgs.xorg.xset}/bin/xset r rate 200
-      ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-2 --primary --left-of DVI-D-1
-    '';
-    defaultSession = "none+bspwm";
-    lightdm = {
-      enable = true;
-      greeter.enable = true;
-      background = ./wall-paper/wp12329545.png;
-    };
-  };
-
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e,caps:escape";
@@ -95,94 +185,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
-
-  #programs
-  virtualisation.docker.enable = true;
-  users.extraGroups.docker.members = [ "ht" ];
-
-  programs.fish.enable = true;
-  programs.starship.enable = true;
-  programs.starship.interactiveOnly = true;
-
-  programs.neovim.enable = true;
-  programs.neovim.withNodeJs = true;
-  programs.neovim.defaultEditor = true;
-
-  programs.clash-verge.enable = true;
-  programs.clash-verge.tunMode = true;
-  programs.clash-verge.autoStart = true;
-
-  programs.htop.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ht = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.fish;
-    packages = with pkgs; [ ];
-  };
-
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
-    google-fonts
-  ];
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    #tools
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-    fzf
-    exa
-    tldr
-    bat
-    tree
-    ranger
-    #shell
-    fish
-    bash
-    #terminal
-    kitty
-    xterm
-    #desktop
-    sxhkd
-    polybar
-    arandr
-    nitrogen
-    rofi
-    google-chrome
-    papirus-icon-theme
-    glances
-    #program
-    zig_0_9
-
-    #language-server
-    #lua
-    lua-language-server
-
-    #html/css/json/eslint
-    nodePackages.vscode-langservers-extracted
-    nodePackages."@tailwindcss/language-server"
-
-    #bash
-    nodePackages.bash-language-server
-    beautysh
-
-    #python
-    nodePackages.pyright
-    black
-
-    #nix
-    rnix-lsp
-    statix
-    nixfmt
-
-    #javascript
-    nodePackages.typescript
-    nodePackages.typescript-language-server
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
