@@ -90,6 +90,7 @@
     bat
     tree
     ranger
+    tmux
     #shell
     fish
     bash
