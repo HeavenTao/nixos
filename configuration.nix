@@ -7,6 +7,7 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nix.settings.trusted-users = [ "ht" ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.pulseaudio = true;
