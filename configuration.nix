@@ -64,19 +64,24 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.windowManager.bspwm.enable = true;
+  #services.xserver.windowManager.bspwm.enable = true;
+  #services.xserver.displayManager = {
+  #setupCommands = ''
+  #${pkgs.xorg.xset}/bin/xset r rate 200
+  #${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-2 --primary --left-of DVI-D-1
+  #'';
+  #defaultSession = "none+bspwm";
+  #lightdm = {
+  #enable = true;
+  #greeter.enable = true;
+  #background = ./wall-paper/wp12329545.png;
+  #};
+  #};
   services.xserver.displayManager = {
-    setupCommands = ''
-      ${pkgs.xorg.xset}/bin/xset r rate 200
-      ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-2 --primary --left-of DVI-D-1
-    '';
-    defaultSession = "none+bspwm";
-    lightdm = {
-      enable = true;
-      greeter.enable = true;
-      background = ./wall-paper/wp12329545.png;
-    };
+    sddm.enable = true;
+    defaultSession = "none+awesome";
   };
+  services.xserver.windowManager = { awesome = { enable = true; }; };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
